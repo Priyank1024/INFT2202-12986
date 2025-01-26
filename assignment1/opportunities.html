@@ -1,0 +1,145 @@
+<!-- name - Priyank Pawar
+ id - 100949832
+ due date - 25/01/2025-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Opportunities</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link " href=Index.html>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href=opportunities.html>Opportunities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Event.html">Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <h1 class="text-center mb-4">Volunteer Opportunities</h1>
+    <p class="text-center">Explore the available volunteer opportunities here!</p>
+    <div class="row" id="opportunities"></div>
+</main>
+
+<!-- Sign-Up Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalLabel">Sign Up for Opportunity</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="signUpForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Preferred Role</label>
+                        <input type="text" class="form-control" id="role" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p class="text-center">&copy; 2025 Volunteer Connect | <a href="#">Privacy Policy</a></p>
+</footer>
+
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+<script>
+    // Array of opportunities
+    const opportunities = [
+        {
+            title: "Beach Cleanup",
+            description: "Help clean up the local beach and preserve marine life.",
+            date: "March 15, 2025",
+            time: "10:00 AM",
+        },
+        {
+            title: "Tree Planting",
+            description: "Join us in planting trees to make our city greener.",
+            date: "March 20, 2025",
+            time: "9:00 AM",
+        },
+        {
+            title: "Food Distribution",
+            description: "Distribute food to those in need in the community.",
+            date: "March 25, 2025",
+            time: "1:00 PM",
+        }
+    ];
+
+    // Dynamically create opportunity cards
+    const opportunityList = document.getElementById("opportunities");
+    opportunities.forEach((opp, index) => {
+        const card = document.createElement("div");
+        card.className = "col-md-4";
+        card.innerHTML = `
+            <div class="card mb-4">
+                <img src="${opp.image}" class="card-img-top" alt="${opp.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${opp.title}</h5>
+                    <p class="card-text">${opp.description}</p>
+                    <p><strong>Date:</strong> ${opp.date}</p>
+                    <p><strong>Time:</strong> ${opp.time}</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signUpModal" data-index="${index}">Sign Up</button>
+                </div>
+            </div>
+        `;
+        opportunityList.appendChild(card);
+    });
+
+    // Handle modal form submission
+    document.getElementById("signUpForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const role = document.getElementById("role").value;
+
+        alert(`Thank you for signing up, ${name}! We’ll contact you at ${email}.`);
+        const modal = bootstrap.Modal.getInstance(document.getElementById("signUpModal"));
+        modal.hide();
+        this.reset();
+    });
+</script>
+</body>
+</html>
+

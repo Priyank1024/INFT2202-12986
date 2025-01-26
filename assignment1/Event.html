@@ -1,0 +1,110 @@
+<!-- name - Priyank Pawar
+ id - 100949832
+ due date - 25/01/2025-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link " href=Index.html>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=opportunities.html>opportunities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="Event.html">event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">about</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <h1 class="text-center mb-4">Volunteer Event</h1>
+    <p class="text-center">Explore the available volunteer events here!</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Event Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Location</th>
+            <th scope="col">Category</th>
+        </tr>
+        </thead>
+        <tbody id="eventTableBody">
+        <!-- Events will be dynamically injected here -->
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p class="text-center">&copy; 2025 Volunteer Connect | <a href="#">Privacy Policy</a></p>
+</footer>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Array of events
+    const events = [
+        {
+            name: "Community Workshop",
+            date: "April 10, 2025",
+            time: "2:00 PM",
+            location: "Community Hall, Downtown",
+            category: "Workshop"
+        },
+        {
+            name: "Park Cleanup Day",
+            date: "April 15, 2025",
+            time: "9:00 AM",
+            location: "Central Park",
+            category: "Cleanup"
+        },
+        {
+            name: "Fundraising Gala",
+            date: "April 20, 2025",
+            time: "7:00 PM",
+            location: "Grand Ballroom, City Center",
+            category: "Fundraiser"
+        }
+    ];
+
+    // Populate the events table
+    const eventTableBody = document.getElementById("eventTableBody");
+    events.forEach((event) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${event.name}</td>
+            <td>${event.date}</td>
+            <td>${event.time}</td>
+            <td>${event.location}</td>
+            <td>${event.category}</td>
+        `;
+        eventTableBody.appendChild(row);
+    });
+</script>
+</body>
+</html>

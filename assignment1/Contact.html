@@ -1,0 +1,100 @@
+<!-- name - Priyank Pawar
+ id - 100949832
+ due date - 25/01/2025-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link " href=Index.html>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=opportunities.html>opportunities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Event.html">event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">about</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="Contact.html">contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <h1 class="text-center mb-4">Volunteer Contact</h1>
+    <p class="text-center">To Contact Information</p>
+    <form id="contactForm" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="subject" required>
+            <div class="invalid-feedback">Please enter a subject.</div>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" required></textarea>
+            <div class="invalid-feedback">Please enter your message.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
+
+<footer>
+    <p class="text-center">&copy; 2025 Volunteer Connect | <a href="#">Privacy Policy</a></p>
+</footer>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Form validation
+    (function () {
+        'use strict'
+
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                event.preventDefault();
+                alert('Thank you for contacting us! We will get back to you soon.');
+                form.reset();
+            }
+
+            form.classList.add('was-validated');
+        }, false);
+    })();
+</script>
+</body>
+</html>
